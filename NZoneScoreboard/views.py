@@ -22,7 +22,7 @@ def scoreboard(id):
     print(match)
     if not (match is None):
         return render_template(
-            'scoreboard2.html',
+            'scoreboard.html',
              match=match
         )
     else: 
@@ -51,7 +51,7 @@ def scoreboard_past(uid):
     print(match)
     if not (match is None):
         return render_template(
-            'scoreboard2.html',
+            'scoreboard.html',
              match=match
         )
     else: 
@@ -68,21 +68,47 @@ def getPastMatchByUser(uid):
     out = {}
     match = findMatchbyUser(uid, matches['items'])
     if not (match is None):
-        out['team1'] = []
-        out['team2'] = []
-        for p in match['players']['team1']:
-            player = {}
-            player['name'] = p['username']
-            player['rating'] = p['rating']
-            out['team1'].append(player)
-        for p in match['players']['team2']:
-            player = {}
-            player['name'] = p['username']
-            player['rating'] = p['rating']
-            out['team2'].append(player)
+        out['team1'] = generatePlayers(match['players']['team1'])
+        out['team2'] = generatePlayers(match['players']['team2'])
+        teamCivs = match['civs']
+        out['team1Civs'] = generateCivIcons(teamCivs['team1'])
+        out['team2Civs'] = generateCivIcons(teamCivs['team2'])
         out['teamsize'] = len(out['team1'])
+        out['map'] = match['map']['name']
         return out
     return None
+
+def generatePlayers(players):
+    out = []
+    for p in players:
+        player = {}
+        player['name'] = p['username']
+        player['rating'] = p['rating']
+        player['civs'] = generateCivIcons( p['civs'])
+        out.append(player)
+    return out
+
+def generateCivIcons(civs):
+    out = []
+    for c in civs:
+        civ = {}
+        title = c['title']
+        titleArr = title.split("_")
+        if len(titleArr) > 1:
+            civName = titleArr[1]
+            civ['name'] = civName
+            civ['src'] = "/static/images/wappen/" + civName.lower()+ ".png"
+        elif len(titleArr) == 1:
+            civName = titleArr[0]
+            civ['name'] = civName
+            civ['src'] = "/static/images/wappen/" + civName.lower() + ".png"
+        else:
+            civ['name'] = "Not Found"
+            civ['src'] = "/static/images/wappen/NotFound.png"
+        out.append(civ)
+    return out
+
+        
 
 def getCurrentMatchByUser(uid):
     r = requests.get("https://new-chapter.eu/app.php/nczone/api/matches/running")
@@ -90,18 +116,11 @@ def getCurrentMatchByUser(uid):
     out = {}
     match = findMatchbyUser(uid, matches)
     if not (match is None):
-        out['team1'] = []
-        out['team2'] = []
-        for p in match['players']['team1']:
-            player = {}
-            player['name'] = p['username']
-            player['rating'] = p['rating']
-            out['team1'].append(player)
-        for p in match['players']['team2']:
-            player = {}
-            player['name'] = p['username']
-            player['rating'] = p['rating']
-            out['team2'].append(player)
+        out['team1'] = generatePlayers(match['players']['team1'])
+        out['team2'] = generatePlayers(match['players']['team2'])
+        teamCivs = match['civs']
+        out['team1Civs'] = generateCivIcons(teamCivs['team1'])
+        out['team2Civs'] = generateCivIcons(teamCivs['team2'])
         out['teamsize'] = len(out['team1'])
         return out
     return None
