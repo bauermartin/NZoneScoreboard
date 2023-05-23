@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCZone Scoreboard</title>
+
+    <style>
+        .scoreboard_main {
+            height: 280px;
+            width: 1000px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard_main">
+        <span>{{match.team1[0].name}}</span>
+        <svg width="210mm"
+             height="297mm"
+             viewBox="0 0 210 297"
+             version="1.1"
+             id="svg5"
+             inkscape:export-filename="Background.svg"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96"
+             xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+             xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:svg="http://www.w3.org/2000/svg">
+            <sodipodi:namedview id="namedview7"
+                                pagecolor="#ffffff"
+                                bordercolor="#000000"
+                                borderopacity="0.25"
+                                inkscape:showpageshadow="2"
+                                inkscape:pageopacity="0.0"
+                                inkscape:pagecheckerboard="0"
+                                inkscape:deskcolor="#d1d1d1"
+                                inkscape:document-units="mm"
+                                showgrid="true"
+                                inkscape:zoom="1.0544998"
+                                inkscape:cx="560.45531"
+                                inkscape:cy="92.93506"
+                                inkscape:window-width="1920"
+                                inkscape:window-height="1017"
+                                inkscape:window-x="1912"
+                                inkscape:window-y="-8"
+                                inkscape:window-maximized="1"
+                                inkscape:current-layer="layer1">
+                <inkscape:grid type="xygrid"
+                               id="grid757" />
+            </sodipodi:namedview>
+            <defs id="defs2">
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="175.60811"
+                      height="22.799086"
+                      id="rect301" />
+                <linearGradient inkscape:collect="always"
+                                id="linearGradient179">
+                    <stop style="stop-color:#aa4400;stop-opacity:1;"
+                          offset="0"
+                          id="stop175" />
+                    <stop style="stop-color:#aa4400;stop-opacity:0;"
+                          offset="1"
+                          id="stop177" />
+                </linearGradient>
+                <linearGradient inkscape:collect="always"
+                                xlink:href="#linearGradient179"
+                                id="linearGradient181"
+                                x1="-94.653229"
+                                y1="81.080643"
+                                x2="-95.274193"
+                                y2="81.080643"
+                                gradientUnits="userSpaceOnUse" />
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="180.3497"
+                      height="21.850769"
+                      id="rect301-9" />
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="176.55643"
+                      height="22.799086"
+                      id="rect301-9-2" />
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="178.45306"
+                      height="21.850769"
+                      id="rect301-8" />
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="175.60811"
+                      height="19.954136"
+                      id="rect301-8-2" />
+                <rect x="215.92075"
+                      y="312.81686"
+                      width="178.45306"
+                      height="25.644037"
+                      id="rect301-8-2-3" />
+            </defs>
+            <g inkscape:label="Ebene 1"
+               inkscape:groupmode="layer"
+               id="layer1">
+                <rect style="fill:#aa4400;stroke-width:0.264583"
+                      id="rect171"
+                      width="162.16129"
+                      height="56.419353"
+                      x="29.451612"
+                      y="40.80645" />
+                <rect style="fill:url(#linearGradient181);fill-opacity:1;stroke-width:0.264583"
+                      id="rect173"
+                      width="49.943546"
+                      height="8.4274244"
+                      x="-107.07257"
+                      y="79.483871"
+                      transform="scale(-1,1)" />
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,-0.63357656,-9.3992701)"
+                      id="text299"
+                      style="white-space:pre;shape-inside:url(#rect301);fill:#aa4400"><tspan x="215.91992"
+                                                                                             y="323.76437"
+                                                                                             id="tspan1554"><tspan style="fill:#ffffff"
+                                                                                                                   id="tspan1552">{{match.team1[0].name}}</tspan></tspan></text>
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,77.802283,-9.0910296)"
+                      id="text299-3"
+                      style="white-space:pre;shape-inside:url(#rect301-8);fill:#aa4400"><tspan x="215.91992"
+                                                                                               y="323.76437"
+                                                                                               id="tspan1558"><tspan style="fill:#ffffff"
+                                                                                                                     id="tspan1556">{{match.team2[0].name}}</tspan></tspan></text>
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,77.713573,-3.5910298)"
+                      id="text299-3-1"
+                      style="white-space:pre;shape-inside:url(#rect301-8-2);fill:#aa4400"><tspan x="215.91992"
+                                                                                                 y="323.76437"
+                                                                                                 id="tspan1562"><tspan style="fill:#ffffff"
+                                                                                                                       id="tspan1560">{{match.team2[1].name}}</tspan></tspan></text>
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,77.802283,2.1781907)"
+                      id="text299-3-1-4"
+                      style="white-space:pre;shape-inside:url(#rect301-8-2-3);fill:#aa4400"><tspan x="215.91992"
+                                                                                                   y="323.76437"
+                                                                                                   id="tspan1566"><tspan style="fill:#ffffff"
+                                                                                                                         id="tspan1564">{{match.team2[2].name}}</tspan></tspan></text>
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,-0.6537077,-3.8324661)"
+                      id="text299-0"
+                      style="white-space:pre;shape-inside:url(#rect301-9);fill:#aa4400"><tspan x="215.91992"
+                                                                                               y="323.76437"
+                                                                                               id="tspan1570"><tspan style="fill:#ffffff"
+                                                                                                                     id="tspan1568">{{match.team1[1].name}}</tspan></tspan></text>
+                <text xml:space="preserve"
+                      transform="matrix(0.26458333,0,0,0.26458333,-0.72719725,1.8680396)"
+                      id="text299-0-4"
+                      style="white-space:pre;shape-inside:url(#rect301-9-2);fill:#aa4400"><tspan x="215.91992"
+                                                                                                 y="323.76437"
+                                                                                                 id="tspan1574"><tspan style="fill:#ffffff"
+                                                                                                                       id="tspan1572">{{match.team1[2].name}}</tspan></tspan></text>
+            </g>
+        </svg>
+
+    </div>
+</body>
+</html>
