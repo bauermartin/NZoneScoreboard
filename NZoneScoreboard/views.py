@@ -22,7 +22,7 @@ def scoreboard(id):
     print(match)
     if not (match is None):
         return render_template(
-            'scoreboard.html',
+            'scoreboard2.html',
              match=match
         )
     else: 
@@ -51,7 +51,7 @@ def scoreboard_past(uid):
     print(match)
     if not (match is None):
         return render_template(
-            'scoreboard.html',
+            'scoreboard2.html',
              match=match
         )
     else: 
@@ -68,8 +68,12 @@ def getPastMatchByUser(uid):
     out = {}
     match = findMatchbyUser(uid, matches['items'])
     if not (match is None):
-        out['team1'] = generatePlayers(match['players']['team1'])
-        out['team2'] = generatePlayers(match['players']['team2'])
+        playersT1 = generatePlayers(match['players']['team1'])
+        out['team1'] = playersT1
+        out['ratingT1'] = getTotalTeamRating(playersT1)
+        playersT2 = generatePlayers(match['players']['team2'])
+        out['team2'] = playersT2
+        out['ratingT2'] = getTotalTeamRating(playersT2)
         teamCivs = match['civs']
         out['team1Civs'] = generateCivIcons(teamCivs['team1'])
         out['team2Civs'] = generateCivIcons(teamCivs['team2'])
@@ -77,6 +81,12 @@ def getPastMatchByUser(uid):
         out['map'] = match['map']['name']
         return out
     return None
+
+def getTotalTeamRating(players):
+    out = 0
+    for p in players:
+            out += p['rating']
+    return out
 
 def generatePlayers(players):
     out = []
@@ -106,6 +116,12 @@ def generateCivIcons(civs):
             civ['name'] = "Not Found"
             civ['src'] = "/static/images/wappen/NotFound.png"
         out.append(civ)
+    if len(out) == 1:
+        dummyCiv = {}
+        dummyCiv['name'] = "Dummy"
+        dummyCiv['src'] = ""
+        out.append(dummyCiv)
+
     return out
 
         
@@ -149,10 +165,6 @@ def getCurrentlyLoggedIn():
             player = {}
             player['name'] = p['username']
             player['rating'] = p['rating']
-            i = 0
-            while i < 30:
-                players.append(player)
-                i += 1
         out['playerslegth'] = len(players)
     return out
         

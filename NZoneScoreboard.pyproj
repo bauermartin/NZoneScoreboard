@@ -45,6 +45,7 @@
   <ItemGroup>
     <Content Include="NZoneScoreboard\static\images\Background.png" />
     <Content Include="NZoneScoreboard\static\images\Background.svg" />
+    <Content Include="NZoneScoreboard\static\images\Background2.svg" />
     <Content Include="NZoneScoreboard\static\images\Background_Scoreboard.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\aztecs.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\bengalis.png" />
