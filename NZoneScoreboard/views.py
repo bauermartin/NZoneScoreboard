@@ -116,11 +116,6 @@ def generateCivIcons(civs):
             civ['name'] = "Not Found"
             civ['src'] = "/static/images/wappen/NotFound.png"
         out.append(civ)
-    if len(out) == 1:
-        dummyCiv = {}
-        dummyCiv['name'] = "Dummy"
-        dummyCiv['src'] = ""
-        out.append(dummyCiv)
 
     return out
 
