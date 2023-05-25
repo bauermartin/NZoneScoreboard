@@ -11,7 +11,7 @@ from NZoneScoreboard import app
 def redirect():
     return scoreboard(12313)
 
-@app.route('/nc/scoreboard/<id>')
+@app.route('/nc/scoreboard/<int:id>')
 def scoreboard(id):
     '''Renders the scoreboard page.'''
     print('Open Scoreboard')
@@ -50,13 +50,13 @@ def login_queue():
         loggedIn=loggedIn
     )
 
-@app.route('/nc/scoreboard/past/<uid>')
+@app.route('/nc/scoreboard/past/<int:uid>')
 def scoreboard_past(uid):
     '''Renders the scoreboard page.'''
     print('Open Scoreboard')
     match = getPastMatchByUser(uid)
     parameter = request.args
-    opacity = parameter.get('opacity')
+    opacity = float(parameter.get('opacity'))
     print(opacity)
     if not (match is None):
         if len(match['team1Civs']) > 0:
