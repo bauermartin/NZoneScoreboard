@@ -19,11 +19,14 @@ def scoreboard(id):
     """Renders the scoreboard page."""
     print("Open Scoreboard")
     match = getCurrentMatchByUser(id)
-    print(match)
+    parameter = request.args
+    opacity = parameter.get('opacity')
+    print(opacity)
     if not (match is None):
         return render_template(
             'scoreboard2.html',
-             match=match
+             match=match,
+             opacity=opacity
         )
     else: 
         loggedIn = getCurrentlyLoggedIn()
@@ -48,11 +51,14 @@ def scoreboard_past(uid):
     """Renders the scoreboard page."""
     print("Open Scoreboard")
     match = getPastMatchByUser(uid)
-    print(match)
+    parameter = request.args
+    opacity = parameter.get('opacity')
+    print(opacity)
     if not (match is None):
         return render_template(
             'scoreboard2.html',
-             match=match
+             match=match,
+             opacity=opacity
         )
     else: 
         loggedIn = getCurrentlyLoggedIn()
