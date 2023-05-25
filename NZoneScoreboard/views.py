@@ -23,11 +23,18 @@ def scoreboard(id):
     opacity = parameter.get('opacity')
     print(opacity)
     if not (match is None):
-        return render_template(
-            'scoreboard2.html',
+        if len(match['team1Civs']) > 0:
+            return render_template(
+            'scoreboard2CivPool.html',
              match=match,
              opacity=opacity
         )
+        else:
+            return render_template(
+                'scoreboard2.html',
+                 match=match,
+                 opacity=opacity
+            )
     else: 
         loggedIn = getCurrentlyLoggedIn()
 
@@ -55,11 +62,18 @@ def scoreboard_past(uid):
     opacity = parameter.get('opacity')
     print(opacity)
     if not (match is None):
-        return render_template(
-            'scoreboard2.html',
+        if len(match['team1Civs']) > 0:
+            return render_template(
+            'scoreboard2CivPool.html',
              match=match,
              opacity=opacity
         )
+        else:
+            return render_template(
+                'scoreboard2.html',
+                 match=match,
+                 opacity=opacity
+            )
     else: 
         loggedIn = getCurrentlyLoggedIn()
 
