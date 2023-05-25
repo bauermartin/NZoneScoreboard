@@ -65,8 +65,10 @@ def scoreboard_past(uid):
 def getPastMatchByUser(uid):
     r = requests.get("https://new-chapter.eu/app.php/nczone/api/matches/past")
     matches = r.json()
+    return getMatchInfo(findMatchbyUser(uid, matches['items']))
+
+def getMatchInfo(match):
     out = {}
-    match = findMatchbyUser(uid, matches['items'])
     if not (match is None):
         playersT1 = generatePlayers(match['players']['team1'])
         out['team1'] = playersT1
@@ -124,17 +126,7 @@ def generateCivIcons(civs):
 def getCurrentMatchByUser(uid):
     r = requests.get("https://new-chapter.eu/app.php/nczone/api/matches/running")
     matches = r.json()
-    out = {}
-    match = findMatchbyUser(uid, matches)
-    if not (match is None):
-        out['team1'] = generatePlayers(match['players']['team1'])
-        out['team2'] = generatePlayers(match['players']['team2'])
-        teamCivs = match['civs']
-        out['team1Civs'] = generateCivIcons(teamCivs['team1'])
-        out['team2Civs'] = generateCivIcons(teamCivs['team2'])
-        out['teamsize'] = len(out['team1'])
-        return out
-    return None
+    return getMatchInfo(findMatchbyUser(uid, matches))
 
 def findMatchbyUser(uid, matches):
     if not (matches is None):
