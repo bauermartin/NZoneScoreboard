@@ -1,11 +1,8 @@
-"""
+'''
 Routes and views for the flask application.
-"""
+'''
 
-from asyncio.windows_events import NULL
 import requests
-import json
-from datetime import datetime
 from flask import render_template
 from flask import request
 from NZoneScoreboard import app
@@ -14,15 +11,15 @@ from NZoneScoreboard import app
 def redirect():
     return scoreboard(12313)
 
-@app.route('/nc/scoreboard/<id>')
+@app.route('/nc/scoreboard/<int:id>')
 def scoreboard(id):
-    """Renders the scoreboard page."""
-    print("Open Scoreboard")
+    '''Renders the scoreboard page.'''
+    print('Open Scoreboard')
     match = getCurrentMatchByUser(id)
     parameter = request.args
     opacity = parameter.get('opacity')
     print(opacity)
-    if not (match is None):
+    if match is not None:
         if len(match['team1Civs']) > 0:
             return render_template(
             'scoreboard2CivPool.html',
@@ -35,7 +32,7 @@ def scoreboard(id):
                  match=match,
                  opacity=opacity
             )
-    else: 
+    else:
         loggedIn = getCurrentlyLoggedIn()
 
         return render_template(
@@ -45,21 +42,21 @@ def scoreboard(id):
 
 @app.route('/nc/login_queue_board')
 def login_queue():
-    """Renders the scoreboard page."""
-    print("Open Login Queue Board")
+    '''Renders the scoreboard page.'''
+    print('Open Login Queue Board')
     loggedIn = getCurrentlyLoggedIn()
     return render_template(
         'login_vertical.html',
         loggedIn=loggedIn
     )
-        
-@app.route('/nc/scoreboard/past/<uid>')
+
+@app.route('/nc/scoreboard/past/<int:uid>')
 def scoreboard_past(uid):
-    """Renders the scoreboard page."""
-    print("Open Scoreboard")
+    '''Renders the scoreboard page.'''
+    print('Open Scoreboard')
     match = getPastMatchByUser(uid)
     parameter = request.args
-    opacity = parameter.get('opacity')
+    opacity = float(parameter.get('opacity'))
     print(opacity)
     if not (match is None):
         if len(match['team1Civs']) > 0:
@@ -74,7 +71,7 @@ def scoreboard_past(uid):
                  match=match,
                  opacity=opacity
             )
-    else: 
+    else:
         loggedIn = getCurrentlyLoggedIn()
 
         return render_template(
@@ -83,13 +80,13 @@ def scoreboard_past(uid):
         )
 
 def getPastMatchByUser(uid):
-    r = requests.get("https://new-chapter.eu/app.php/nczone/api/matches/past")
+    r = requests.get('https://new-chapter.eu/app.php/nczone/api/matches/past')
     matches = r.json()
     return getMatchInfo(findMatchbyUser(uid, matches['items']))
 
 def getMatchInfo(match):
     out = {}
-    if not (match is None):
+    if match is not None:
         playersT1 = generatePlayers(match['players']['team1'])
         out['team1'] = playersT1
         out['ratingT1'] = getTotalTeamRating(playersT1)
@@ -107,7 +104,7 @@ def getMatchInfo(match):
 def getTotalTeamRating(players):
     out = 0
     for p in players:
-            out += p['rating']
+        out += p['rating']
     return out
 
 def generatePlayers(players):
@@ -125,26 +122,26 @@ def generateCivIcons(civs):
     for c in civs:
         civ = {}
         title = c['title']
-        titleArr = title.split("_")
+        titleArr = title.split('_')
         if len(titleArr) > 1:
             civName = titleArr[1]
             civ['name'] = civName
-            civ['src'] = "/static/images/wappen/" + civName.lower()+ ".png"
+            civ['src'] = f'/static/images/wappen/{civName.lower()}.png'
         elif len(titleArr) == 1:
             civName = titleArr[0]
             civ['name'] = civName
-            civ['src'] = "/static/images/wappen/" + civName.lower() + ".png"
+            civ['src'] = f'/static/images/wappen/{civName.lower()}.png'
         else:
-            civ['name'] = "Not Found"
-            civ['src'] = "/static/images/wappen/NotFound.png"
+            civ['name'] = 'Not Found'
+            civ['src'] = '/static/images/wappen/NotFound.png'
         out.append(civ)
 
     return out
 
-        
+
 
 def getCurrentMatchByUser(uid):
-    r = requests.get("https://new-chapter.eu/app.php/nczone/api/matches/running")
+    r = requests.get('https://new-chapter.eu/app.php/nczone/api/matches/running')
     matches = r.json()
     return getMatchInfo(findMatchbyUser(uid, matches))
 
@@ -162,8 +159,8 @@ def findMatchbyUser(uid, matches):
 
 
 def getCurrentlyLoggedIn():
-    r = requests.get("https://new-chapter.eu/app.php/nczone/api/players/logged_in")
-    logged_in = r.json();
+    r = requests.get('https://new-chapter.eu/app.php/nczone/api/players/logged_in')
+    logged_in = r.json()
     out = {}
     players = []
     out['players'] = players
@@ -174,4 +171,3 @@ def getCurrentlyLoggedIn():
             player['rating'] = p['rating']
         out['playerslegth'] = len(players)
     return out
-        
