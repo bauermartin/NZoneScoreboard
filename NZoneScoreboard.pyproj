@@ -61,6 +61,7 @@
     <Content Include="NZoneScoreboard\static\images\wappen\dravidians.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\ethiopians.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\franks.png" />
+    <Content Include="NZoneScoreboard\static\images\wappen\freepick.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\goths.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\gurjaras.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\hindustanis.png" />
