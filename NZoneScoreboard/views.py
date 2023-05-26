@@ -28,7 +28,7 @@ def scoreboard(id):
         )
         else:
             return render_template(
-                'scoreboard2.html',
+                'scoreboard3.html',
                  match=match,
                  opacity=opacity
             )
@@ -70,7 +70,7 @@ def scoreboard_past(uid):
         )
         else:
             return render_template(
-                'scoreboard2.html',
+                'scoreboard3.html',
                  match=match,
                  opacity=opacity
             )
