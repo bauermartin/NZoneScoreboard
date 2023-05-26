@@ -6,15 +6,21 @@
 
     <style>
         .scoreboard_main {
-            height: 280px;
             width: 1000px;
             background-color: grey;
             background-size: cover;
             color: white;
         }
+
+        .login_info {
+            font-size: 1.3em;
+            padding: 10px 10px 10px 10px;
+        }
+
         .columnwrapper {
             display: grid;
-            grid-template-columns: 20% 20% 20% 20% 20% 20%;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            padding: 10px 10px 10px 10px;
         }
 
         .playerDetails {
@@ -29,7 +35,7 @@
             <span>Currently Logged in players: {{loggedIn.playerslegth}} </span>
         </div>
         <div class="columnwrapper">
-            {% for column in loggedIn.players | slice(6) -%}
+            {% for column in loggedIn.players | slice(5) -%}
             <div class="columns">
                 {%- for player in column -%}
                 <div class="playerDetails">

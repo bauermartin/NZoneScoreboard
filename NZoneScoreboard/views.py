@@ -56,7 +56,10 @@ def scoreboard_past(uid):
     print('Open Scoreboard')
     match = getPastMatchByUser(uid)
     parameter = request.args
-    opacity = float(parameter.get('opacity'))
+    opacity = 1
+    if not (parameter.get('opacity') is None):
+        opacity = float(parameter.get('opacity'))
+    
     print(opacity)
     if not (match is None):
         if len(match['team1Civs']) > 0:
@@ -164,10 +167,17 @@ def getCurrentlyLoggedIn():
     out = {}
     players = []
     out['players'] = players
+    dummyplayers = ["Test 1", "Test 2","Test 3", "Test 4","Test 5", "Test 6","Test 7", "Test 8","Test 9", "Test 10","Test 11", "Test 12","Test 13", "Test 14","Test 15", "Test 16","Test 17", "Test 18","Test 19", "Test 20"]
     if not (logged_in is None):
         for p in logged_in:
             player = {}
             player['name'] = p['username']
             player['rating'] = p['rating']
+            players.append(player)
+        for p in dummyplayers:
+            player = {}
+            player['name'] = p
+            player['rating'] = 9999
+            players.append(player)
         out['playerslegth'] = len(players)
     return out
