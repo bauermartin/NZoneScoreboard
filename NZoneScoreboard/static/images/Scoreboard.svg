@@ -340,7 +340,7 @@
          y="28.661488"
          id="tspan19545"><tspan
            style="fill:#ffffff"
-           id="tspan19543">{{match.team2[0].rating}}</tspan></tspan></text><text
+           id="tspan19543">{{match.team2[0].rating}}</tspan></tspan></text>{% if match.teamsize >= 2 %}<text
        xml:space="preserve"
        transform="matrix(0.26903894,0,0,0.26106862,11.316044,29.530405)"
        id="text6798-9-7"
@@ -358,7 +358,7 @@
          y="28.661488"
          id="tspan19553"><tspan
            style="fill:#ffffff"
-           id="tspan19551">{{match.team2[1].rating}}</tspan></tspan></text><text
+           id="tspan19551">{{match.team2[1].rating}}</tspan></tspan></text>{% endif %}{% if match.teamsize >= 3 %}<text
        xml:space="preserve"
        transform="matrix(0.26983296,0,0,0.26106862,11.045456,36.351256)"
        id="text6798-9-7-8"
@@ -376,7 +376,7 @@
          y="28.661488"
          id="tspan19561"><tspan
            style="fill:#ffffff"
-           id="tspan19559">{{match.team2[2].rating}}</tspan></tspan></text>{% if match.teamsize == 4 %}<text
+           id="tspan19559">{{match.team2[2].rating}}</tspan></tspan></text>{% endif %}{% if match.teamsize == 4 %}<text
        xml:space="preserve"
        transform="matrix(0.26642565,0,0,0.26106862,12.206612,43.198283)"
        id="text6798-9-7-8-3"

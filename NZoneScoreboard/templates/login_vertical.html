@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="30">
     <title>NCZone Scoreboard</title>
 
     <style>
@@ -17,9 +18,9 @@
             font-size: 1.3em;
             padding-bottom: 20px;
         }
-
     </style>
-    {% if loggedIn.playerslegth<30 %}
+    {% if loggedIn.playerslegth
+    <30 %}
     <style>
         .playerDetails {
             padding-top: 5px;
