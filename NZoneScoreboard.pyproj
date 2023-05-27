@@ -43,10 +43,8 @@
     <Folder Include="NZoneScoreboard\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NZoneScoreboard\static\images\Background.png" />
-    <Content Include="NZoneScoreboard\static\images\Background.svg" />
-    <Content Include="NZoneScoreboard\static\images\Background2.svg" />
-    <Content Include="NZoneScoreboard\static\images\Background_Scoreboard.png" />
+    <Content Include="NZoneScoreboard\static\images\New_Chapter_Logo.png" />
+    <Content Include="NZoneScoreboard\static\images\Scoreboard.svg" />
     <Content Include="NZoneScoreboard\static\images\wappen\aztecs.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\bengalis.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\berbers.png" />
@@ -89,7 +87,6 @@
     <Content Include="NZoneScoreboard\static\images\wappen\vietnamese.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\vikings.png" />
     <Content Include="requirements.txt" />
-    <Content Include="NZoneScoreboard\templates\scoreboard.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

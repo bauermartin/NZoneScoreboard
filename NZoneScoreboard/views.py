@@ -7,10 +7,6 @@ from flask import render_template
 from flask import request
 from NZoneScoreboard import app
 
-@app.route('/')
-def redirect():
-    return scoreboard(12313)
-
 @app.route('/nc/scoreboard/<int:id>')
 def scoreboard(id):
     '''Renders the scoreboard page.'''
@@ -114,7 +110,10 @@ def generatePlayers(players):
     out = []
     for p in players:
         player = {}
-        player['name'] = p['username']
+        username = p['username']
+        if(len(username) > 16):
+            username = username[:14] + '..'
+        player['name'] = username
         player['rating'] = p['rating']
         player['civs'] = generateCivIcons( p['civs'])
         out.append(player)
