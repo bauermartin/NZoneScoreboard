@@ -39,21 +39,6 @@ def scoreboard(id):
              opacity=opacity
         )
 
-@app.route('/nc/login_queue_board')
-def login_queue():
-    '''Renders the scoreboard page.'''
-    print('Open Login Queue Board')
-    loggedIn = getCurrentlyLoggedIn()
-    parameter = request.args
-    opacity = 1
-    if not (parameter.get('opacity') is None):
-        opacity = float(parameter.get('opacity'))
-    return render_template(
-        'login_vertical.html',
-        loggedIn=loggedIn,
-        opacity=opacity
-    )
-
 @app.route('/nc/scoreboard/past/<int:uid>')
 def scoreboard_past(uid):
     '''Renders the scoreboard page.'''

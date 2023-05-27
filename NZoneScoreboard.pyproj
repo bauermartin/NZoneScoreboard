@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NZoneScoreboard\" />
+    <Folder Include="NZoneScoreboard\svg\" />
     <Folder Include="NZoneScoreboard\static\" />
     <Folder Include="NZoneScoreboard\static\content\" />
     <Folder Include="NZoneScoreboard\static\fonts\" />
@@ -43,10 +44,10 @@
     <Folder Include="NZoneScoreboard\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NZoneScoreboard\static\images\BackgroundCivPool.svg" />
-    <Content Include="NZoneScoreboard\static\images\LoginBoardHorizontal.svg" />
+    <Content Include="NZoneScoreboard\svg\BackgroundCivPool.svg" />
+    <Content Include="NZoneScoreboard\svg\LoginBoardHorizontal.svg" />
     <Content Include="NZoneScoreboard\static\images\New_Chapter_Logo.png" />
-    <Content Include="NZoneScoreboard\static\images\Scoreboard.svg" />
+    <Content Include="NZoneScoreboard\svg\Scoreboard.svg" />
     <Content Include="NZoneScoreboard\static\images\wappen\aztecs.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\bengalis.png" />
     <Content Include="NZoneScoreboard\static\images\wappen\berbers.png" />
