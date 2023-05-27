@@ -43,6 +43,7 @@
     <Folder Include="NZoneScoreboard\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NZoneScoreboard\static\images\LoginBoardHorizontal.svg" />
     <Content Include="NZoneScoreboard\static\images\New_Chapter_Logo.png" />
     <Content Include="NZoneScoreboard\static\images\Scoreboard.svg" />
     <Content Include="NZoneScoreboard\static\images\wappen\aztecs.png" />

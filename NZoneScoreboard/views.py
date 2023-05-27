@@ -13,18 +13,20 @@ def scoreboard(id):
     print('Open Scoreboard')
     match = getCurrentMatchByUser(id)
     parameter = request.args
-    opacity = parameter.get('opacity')
-    print(opacity)
+    opacity = 1
+    if not (parameter.get('opacity') is None):
+        opacity = float(parameter.get('opacity'))
+
     if match is not None:
         if len(match['team1Civs']) > 0:
             return render_template(
-            'scoreboard2CivPool.html',
+            'scoreboardCivPool.html',
              match=match,
              opacity=opacity
         )
         else:
             return render_template(
-                'scoreboard3.html',
+                'scoreboard.html',
                  match=match,
                  opacity=opacity
             )
@@ -33,7 +35,8 @@ def scoreboard(id):
 
         return render_template(
             'login_horizontal.html',
-             loggedIn=loggedIn
+             loggedIn=loggedIn,
+             opacity=opacity
         )
 
 @app.route('/nc/login_queue_board')
@@ -41,9 +44,14 @@ def login_queue():
     '''Renders the scoreboard page.'''
     print('Open Login Queue Board')
     loggedIn = getCurrentlyLoggedIn()
+    parameter = request.args
+    opacity = 1
+    if not (parameter.get('opacity') is None):
+        opacity = float(parameter.get('opacity'))
     return render_template(
         'login_vertical.html',
-        loggedIn=loggedIn
+        loggedIn=loggedIn,
+        opacity=opacity
     )
 
 @app.route('/nc/scoreboard/past/<int:uid>')
@@ -60,13 +68,13 @@ def scoreboard_past(uid):
     if not (match is None):
         if len(match['team1Civs']) > 0:
             return render_template(
-            'scoreboard2CivPool.html',
+            'scoreboardCivPool.html',
              match=match,
              opacity=opacity
         )
         else:
             return render_template(
-                'scoreboard3.html',
+                'scoreboard.html',
                  match=match,
                  opacity=opacity
             )
