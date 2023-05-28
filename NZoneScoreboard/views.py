@@ -155,12 +155,12 @@ def getCurrentlyLoggedIn() -> dict:
         'https://new-chapter.eu/app.php/nczone/api/players/logged_in')
     logged_in = r.json()
 
-    out = {'players': [], 'playerslegth': 0}
+    out = {'players': [], 'playerslength': 0}
     if logged_in:
         for p in logged_in:
             out['players'].append({
                 'name': p.get('username', ''),
                 'rating': int(p.get('rating', 0)),
             })
-        out['playerslegth'] = len(out['players'])
+        out['playerslength'] = len(out['players'])
     return out
