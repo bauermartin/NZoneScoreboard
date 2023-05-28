@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 '''
 
-from typing import Optional
+from typing import Dict, List, Optional
 import requests
 from flask import render_template
 from flask import request
@@ -37,27 +37,30 @@ def scoreboard_past(uid: int) -> str:
     return renderMatchOrLogin(match, opacity)
 
 
-def getCurrentMatchByUser(uid: int) -> Optional[dict]:
+def getCurrentMatchByUser(uid: int) -> Optional[Dict]:
     return getCommonMatchByUser(uid, 'running')
 
 
-def getPastMatchByUser(uid: int) -> Optional[dict]:
+def getPastMatchByUser(uid: int) -> Optional[Dict]:
     return getCommonMatchByUser(uid, 'past')
 
 
-def getCommonMatchByUser(uid: int, type: str) -> Optional[dict]:
+def getCommonMatchByUser(uid: int, type: str) -> Optional[Dict]:
     r = requests.get(
         f'https://new-chapter.eu/app.php/nczone/api/matches/{type}')
     res = r.json()
     if not res:
         return None
+    if 'items' in res:
+        matches = res.get('items', [])
+    else:
+        matches = res
 
-    matches = res.get('items', [])
     match = findMatchbyUser(uid, matches or [])
     return getMatchInfo(match) if match else None
 
 
-def findMatchbyUser(uid: int, matches: list) -> Optional[dict]:
+def findMatchbyUser(uid: int, matches: List) -> Optional[Dict]:
     for match in matches:
         players = match.get('players', [])
         team1 = players.get('team1', [])
@@ -69,7 +72,7 @@ def findMatchbyUser(uid: int, matches: list) -> Optional[dict]:
     return None
 
 
-def getMatchInfo(match: dict) -> dict:
+def getMatchInfo(match: Dict) -> Dict:
     players = match.get('players', [])
     playersT1 = generatePlayers(players.get('team1', []))
     playersT2 = generatePlayers(players.get('team2', []))
@@ -86,7 +89,7 @@ def getMatchInfo(match: dict) -> dict:
     }
 
 
-def renderMatchOrLogin(match: Optional[dict], opacity: float = 1.0) -> str:
+def renderMatchOrLogin(match: Optional[Dict], opacity: float = 1.0) -> str:
     if match:
         if len(match.get('team1Civs', [])) > 0:
             return render_template(
@@ -110,11 +113,11 @@ def renderMatchOrLogin(match: Optional[dict], opacity: float = 1.0) -> str:
         )
 
 
-def getTotalTeamRating(players: list) -> int:
+def getTotalTeamRating(players: List) -> int:
     return sum([int(p['rating']) for p in players])
 
 
-def generatePlayers(players: list) -> list[dict]:
+def generatePlayers(players: List) -> List[Dict]:
     out = []
     for p in players:
         player = {}
@@ -128,7 +131,7 @@ def generatePlayers(players: list) -> list[dict]:
     return out
 
 
-def generateCivIcons(civs: list) -> list[dict]:
+def generateCivIcons(civs: List) -> List[Dict]:
     out = []
     for c in civs:
         civ = {}
@@ -150,7 +153,7 @@ def generateCivIcons(civs: list) -> list[dict]:
     return out
 
 
-def getCurrentlyLoggedIn() -> dict:
+def getCurrentlyLoggedIn() -> Dict:
     r = requests.get(
         'https://new-chapter.eu/app.php/nczone/api/players/logged_in')
     logged_in = r.json()
