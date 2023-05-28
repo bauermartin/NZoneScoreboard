@@ -176,7 +176,7 @@
          id="image11975-5"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g><g
+         style="display:inline" /></g>{% if match.teamsize >= 2 %}<g
        id="g13215-7"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,9.5281866,18.689012)">{% if match.team1[1].civs[1] %}<image
@@ -194,7 +194,7 @@
          id="image11975-5-0"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g><g
+         style="display:inline" /></g>{% endif %}{% if match.teamsize >= 3 %}<g
        id="g13215-7-1"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,9.5281866,26.043178)">{% if match.team1[2].civs[1] %}<image
@@ -212,7 +212,7 @@
          id="image11975-5-0-4"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g>{% if match.teamsize == 4 %}<g
+         style="display:inline" /></g>{% endif %}{% if match.teamsize == 4 %}<g
        id="g13215-7-1-8"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,9.5281866,32.868177)">{% if match.team1[3].civs[1] %}<image
@@ -248,7 +248,7 @@
          id="image11975-5-0-4-2-1"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g><g
+         style="display:inline" /></g>{% if match.teamsize >= 2 %}<g
        id="g13215-7-1-8-5-9"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,149.41152,19.218179)">{% if match.team2[1].civs[1] %}<image
@@ -266,7 +266,7 @@
          id="image11975-5-0-4-2-1-1"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g><g
+         style="display:inline" /></g>{% endif %}{% if match.teamsize >= 3 %}<g
        id="g13215-7-1-8-5-9-2"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,149.41152,26.043178)">{% if match.team2[2].civs[1] %}<image
@@ -284,7 +284,7 @@
          id="image11975-5-0-4-2-1-1-7"
          x="50.780945"
          y="14.65007"
-         style="display:inline" /></g>{% if match.teamsize == 4 %}<g
+         style="display:inline" /></g>{% endif %}{% if match.teamsize == 4 %}<g
        id="g13215-7-1-8-5-9-2-3"
        style="display:inline"
        transform="matrix(0.86820913,0,0,0.86820913,149.41152,32.868177)">{% if match.team2[3].civs[1] %}<image
@@ -414,7 +414,7 @@
          y="28.661488"
          id="tspan19577"><tspan
            style="fill:#ffffff"
-           id="tspan19575">{{match.team2[0].name}}</tspan></tspan></text><text
+           id="tspan19575">{{match.team2[0].name}}</tspan></tspan></text>{% if match.teamsize >= 2 %}<text
        xml:space="preserve"
        transform="matrix(0.27563879,0,0,0.26106862,-29.933074,29.708871)"
        id="text6798-9-9-1"
@@ -434,7 +434,7 @@
          y="28.661488"
          id="tspan19585"><tspan
            style="fill:#ffffff"
-           id="tspan19583">{{match.team2[1].name}}</tspan></tspan></text><text
+           id="tspan19583">{{match.team2[1].name}}</tspan></tspan></text>{% endif %}{% if match.teamsize >= 3 %}<text
        xml:space="preserve"
        transform="matrix(0.27563879,0,0,0.26106862,-29.933074,36.563034)"
        id="text6798-9-9-1-1"
@@ -454,7 +454,7 @@
          y="28.661488"
          id="tspan19593"><tspan
            style="fill:#ffffff"
-           id="tspan19591">{{match.team2[2].name}}</tspan></tspan></text>{% if match.teamsize == 4 %}<text
+           id="tspan19591">{{match.team2[2].name}}</tspan></tspan></text>{% endif %}{% if match.teamsize == 4 %}<text
        xml:space="preserve"
        transform="matrix(0.27563879,0,0,0.26106862,-29.933074,43.417199)"
        id="text6798-9-9-1-1-7"
