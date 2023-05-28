@@ -51,10 +51,7 @@ def getCommonMatchByUser(uid: int, type: str) -> Optional[Dict]:
     res = r.json()
     if not res:
         return None
-    if 'items' in res:
-        matches = res.get('items', [])
-    else:
-        matches = res
+    matches = res['items'] if 'items' in res else res
 
     match = findMatchbyUser(uid, matches or [])
     return getMatchInfo(match) if match else None
