@@ -500,7 +500,7 @@
        style="font-weight:bold;font-size:17.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';text-align:end;white-space:pre;shape-inside:url(#rect8691);display:inline;fill:#323245;fill-opacity:1"
        x="39.291916"
        y="0"><tspan
-         x="377.46435"
+         x="461.46435"
          y="59.73695"
          id="tspan1701"><tspan
            style="fill:#ffffff"
@@ -509,9 +509,9 @@
        transform="matrix(0.26458333,0,0,0.26458333,-10.112903,-0.35483871)"
        id="text19619"
        style="font-weight:bold;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';text-align:end;white-space:pre;shape-inside:url(#rect19621);display:inline;fill:#ffffff;fill-opacity:1"><tspan
-         x="620.34521"
+         x="570.34521"
          y="75.664684"
-         id="tspan1703">{{match.ratingT^2}}</tspan></text><image
+         id="tspan1703">{{match.ratingT2}}</tspan></text><image
        width="41.676643"
        height="35.919865"
        preserveAspectRatio="none"
