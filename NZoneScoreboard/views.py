@@ -90,13 +90,13 @@ def renderMatchOrLogin(match: Optional[Dict], opacity: float = 1.0) -> str:
     if match:
         if len(match.get('team1Civs', [])) > 0:
             return render_template(
-                'scoreboardCivPool.html',
+                'ScoreboardCivPool.html',
                 match=match,
                 opacity=opacity
             )
         else:
             return render_template(
-                'scoreboard.html',
+                'Scoreboard.html',
                 match=match,
                 opacity=opacity
             )
@@ -104,7 +104,7 @@ def renderMatchOrLogin(match: Optional[Dict], opacity: float = 1.0) -> str:
         loggedIn = getCurrentlyLoggedIn()
 
         return render_template(
-            'login_horizontal.html',
+            'LoginHorizontal.html',
             loggedIn=loggedIn,
             opacity=opacity
         )
